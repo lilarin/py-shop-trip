@@ -40,7 +40,7 @@ def trip(
     print(f"{customer.name} rides to {min_shop.name}\n")
 
     current_date = datetime(
-        2021, 1, 4, 12,33,41
+        2021, 1, 4, 12, 33, 41
     ).strftime("%d/%m/%Y %H:%M:%S")
     total_cost = 0
 
