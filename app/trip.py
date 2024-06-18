@@ -33,7 +33,9 @@ def trip(customer: Customer, shops: list[Shop], fuel_price: float) -> None:
 
     print(f"{customer.name} rides to {min_shop.name}\n")
 
-    current_date = datetime(2021, 1, 4, 12,33,41).strftime("%d/%m/%Y %H:%M:%S")
+    current_date = datetime(
+        2021, 1, 4, 12,33,41
+    ).strftime("%d/%m/%Y %H:%M:%S")
     total_cost = 0
 
     print(f"Date: {current_date}")
@@ -46,8 +48,7 @@ def trip(customer: Customer, shops: list[Shop], fuel_price: float) -> None:
             cost_str = str(round(cost, 2))
         else:
             cost_str = str(int(cost))
-        print(f"{amount} {product}s for "
-              f'{cost_str} dollars')
+        print(f"{amount} {product}s for {cost_str} dollars")
         total_cost += cost
 
     print(f"Total cost is {total_cost} dollars")
