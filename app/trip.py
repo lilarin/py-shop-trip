@@ -4,7 +4,10 @@ from app.customer import Customer
 from app.shop import Shop
 
 
-def trip(customer: Customer, shops: list[Shop], fuel_price: float) -> None:
+def trip(
+        customer: Customer,
+        shops: list[Shop], fuel_price: float
+) -> None:
     print(f"{customer.name} has {customer.money} dollars")
 
     min_price = float("inf")
