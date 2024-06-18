@@ -16,9 +16,7 @@ def trip(
     for shop in shops:
         distance = dist(customer.location, shop.location)
         fuel_consumption = customer.car.fuel_consumption
-        distance_price = (
-                (distance / 100) * fuel_consumption * fuel_price * 2
-        )
+        distance_price = (distance / 100) * fuel_consumption * fuel_price * 2
         product_price = 0
 
         for product, amount in customer.product_cart.items():
