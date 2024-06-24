@@ -41,7 +41,10 @@ def find_best_shop(
     return min_shop, min_price
 
 
-def print_purchase_details(customer: Customer, shop: Shop) -> None:
+def print_purchase_details(
+        customer: Customer,
+        shop: Shop
+) -> None:
     print(f"Date: {current_date}")
     print(f"Thanks, {customer.name}, for your purchase!")
     print("You have bought:")
@@ -58,7 +61,11 @@ def print_purchase_details(customer: Customer, shop: Shop) -> None:
     print("See you again!\n")
 
 
-def trip(customer: Customer, shops: list[Shop], fuel_price: float) -> None:
+def trip(
+        customer: Customer,
+        shops: list[Shop],
+        fuel_price: float
+) -> None:
     print(f"{customer.name} has {customer.money} dollars")
 
     min_shop, min_price = find_best_shop(customer, shops, fuel_price)
