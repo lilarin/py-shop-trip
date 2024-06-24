@@ -8,18 +8,27 @@ current_date = datetime(
 ).strftime("%d/%m/%Y %H:%M:%S")
 
 
-def calculate_trip_cost(customer, shop, fuel_price):
+def calculate_trip_cost(
+        customer: Customer,
+        shop: Shop,
+        fuel_price: float
+) -> float:
     distance = dist(customer.location, shop.location)
     fuel_consumption = customer.car.fuel_consumption
     distance_price = (distance / 100) * fuel_consumption * fuel_price * 2
     product_price = sum(
-        shop.products[product] * amount for product, amount in customer.product_cart.items()
+        shop.products[product] * amount
+        for product, amount in customer.product_cart.items()
     )
     total_price = distance_price + product_price
     return total_price
 
 
-def find_best_shop(customer, shops, fuel_price):
+def find_best_shop(
+        customer: Customer,
+        shops: list[Shop],
+        fuel_price: float
+) -> tuple[Shop, float]:
     min_price = float("inf")
     min_shop = None
     for shop in shops:
@@ -27,11 +36,12 @@ def find_best_shop(customer, shops, fuel_price):
         if total_price < min_price:
             min_price = total_price
             min_shop = shop
-        print(f"{customer.name}'s trip to the {shop.name} costs {round(total_price, 2)}")
+        print(f"{customer.name}'s trip to the "
+              f"{shop.name} costs {round(total_price, 2)}")
     return min_shop, min_price
 
 
-def print_purchase_details(customer, shop):
+def print_purchase_details(customer: Customer, shop: Shop) -> None:
     print(f"Date: {current_date}")
     print(f"Thanks, {customer.name}, for your purchase!")
     print("You have bought:")
@@ -54,7 +64,8 @@ def trip(customer: Customer, shops: list[Shop], fuel_price: float) -> None:
     min_shop, min_price = find_best_shop(customer, shops, fuel_price)
 
     if min_price > customer.money:
-        print(f"{customer.name} doesn't have enough money to make a purchase in any shop")
+        print(f"{customer.name} doesn't have enough money to make a purchase "
+              f"in any shop")
         return
 
     print(f"{customer.name} rides to {min_shop.name}\n")
