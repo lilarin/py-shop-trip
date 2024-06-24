@@ -3,7 +3,9 @@ from math import dist
 from app.customer import Customer
 from app.shop import Shop
 
-current_date = datetime(2021, 1, 4, 12, 33, 41).strftime("%d/%m/%Y %H:%M:%S")
+current_date = datetime(
+    2021, 1, 4, 12, 33, 41
+).strftime("%d/%m/%Y %H:%M:%S")
 
 
 def calculate_trip_cost(customer, shop, fuel_price):
