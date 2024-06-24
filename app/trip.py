@@ -12,7 +12,9 @@ def calculate_trip_cost(customer, shop, fuel_price):
     distance = dist(customer.location, shop.location)
     fuel_consumption = customer.car.fuel_consumption
     distance_price = (distance / 100) * fuel_consumption * fuel_price * 2
-    product_price = sum(shop.products[product] * amount for product, amount in customer.product_cart.items())
+    product_price = sum(
+        shop.products[product] * amount for product, amount in customer.product_cart.items()
+    )
     total_price = distance_price + product_price
     return total_price
 
